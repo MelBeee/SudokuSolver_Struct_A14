@@ -11,9 +11,20 @@
 int main()
 {
 	setlocale(LC_ALL, "");
+   string entete;
 
-	Sudoku sudokuASolutionner;
-	sudokuASolutionner.Afficher(cout);
-	sudokuASolutionner.Solutionner();
+   while (!SwitchMenu(entete))
+   {
+      AfficherEntete(entete);
+
+    //  Sudoku sudokuASolutionner; 
+	   //sudokuASolutionner.Solutionner();
+	   //sudokuASolutionner.Afficher(cout);
+
+      Attendre();
+   }
+
+   system("cls");
+   cout << " Au revoir " << endl << endl; 
 
 }

@@ -5,6 +5,7 @@
 #include "Matrice.h"
 #include "Chrono.h"
 #include <fstream>
+#include <sstream>
 using namespace std; 
 
 class Sudoku
