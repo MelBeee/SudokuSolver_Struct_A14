@@ -7,7 +7,7 @@
 #include <fstream>
 #include <sstream>
 using namespace std; 
-
+	const int NBLIGNECOLONNE = 9;
 class Sudoku
 {
 public:
@@ -16,7 +16,7 @@ public:
 	void Afficher(ostream & out);
 
 private:
-	const int NBLIGNECOLONNE = 9;
+
 	Chrono horloge_;
 	Matrice<int> monSudoku_;
 };

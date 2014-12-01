@@ -19,7 +19,8 @@ int main()
 
       Sudoku sudokuASolutionner(entete); 
 	   //sudokuASolutionner.Solutionner();
-	   //sudokuASolutionner.Afficher(cout);
+		cout << endl;
+		sudokuASolutionner.Afficher(cout);
 
       Attendre();
    }

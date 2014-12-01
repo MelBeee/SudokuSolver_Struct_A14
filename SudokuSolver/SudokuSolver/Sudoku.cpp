@@ -10,20 +10,28 @@
 
 Sudoku::Sudoku(string nom)
 {
+	monSudoku_.SetNbLignes(NBLIGNECOLONNE);
+	monSudoku_.SetNbColonnes(NBLIGNECOLONNE);
+
 	ifstream sudokuMap("Sudoku_"+nom+".txt");
 	char nombre;
 	if (!sudokuMap.fail()) //si le fichier est ouvert
 	{
-		for (int i = 1; i <= NBLIGNECOLONNE; i++)
+		for (int i = 0; i < NBLIGNECOLONNE; i++)
 		{
-			for (int j = 1; j <= NBLIGNECOLONNE; j++)
+			for (int j = 0; j < NBLIGNECOLONNE; j++)
 			{
 				sudokuMap.get(nombre);
-				if (nombre == '\n')
+				if (nombre == '\n')		//vérifie si le caractère n'est pas un endl
 				{
 					sudokuMap.get(nombre);
 				}
-				cout << nombre;
+				if (nombre == '*') //Transforme les * en 0
+				{
+					nombre = '0';
+				}
+				cout << nombre;//*******************
+				monSudoku_.at(i).at(j) =  nombre-48;
 			}
 			cout << endl;
 		}
@@ -45,7 +53,7 @@ void Sudoku::Afficher(ostream & out)
 	{
 		for (int j = 0; j < NBLIGNECOLONNE; j++)
 		{
-			out << monSudoku_.at(1).at(j) + " ";
+			out << monSudoku_.at(i).at(j);
 		}
 		cout << endl;
 	}
