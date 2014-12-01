@@ -13,5 +13,7 @@ int main()
 	setlocale(LC_ALL, "");
 
 	Sudoku sudokuASolutionner;
+	sudokuASolutionner.Afficher(cout);
 	sudokuASolutionner.Solutionner();
+
 }

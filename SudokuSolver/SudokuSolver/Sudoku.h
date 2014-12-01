@@ -1,6 +1,7 @@
 #ifndef SUDOKU_H
 #define SUDOKU_H
 #include <iostream>
+#include <ostream>
 #include "Matrice.h"
 #include "Chrono.h"
 #include <fstream>
@@ -9,8 +10,9 @@ using namespace std;
 class Sudoku
 {
 public:
-	Sudoku();
+	Sudoku(){}
 	void Solutionner();
+	void Afficher(ostream & out);
 
 private:
 	Chrono horloge_;

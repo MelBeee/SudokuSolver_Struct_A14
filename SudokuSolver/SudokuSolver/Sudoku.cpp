@@ -12,3 +12,15 @@ void Sudoku::Solutionner()
 {
 
 }
+
+void Sudoku::Afficher(ostream & out)
+{
+	for (int i = 0; i < 9; i++)
+	{
+		for (int j = 0; i < 9; j++)
+		{
+			cout << "1 ";
+		}
+		cout << endl;
+	}
+}
