@@ -10,11 +10,12 @@ using namespace std;
 class Sudoku
 {
 public:
-	Sudoku(){}
+	Sudoku(string nom);
 	void Solutionner();
 	void Afficher(ostream & out);
 
 private:
+	const int NBLIGNECOLONNE = 9;
 	Chrono horloge_;
 	Matrice<int> monSudoku_;
 };
