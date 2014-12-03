@@ -20,7 +20,10 @@ int main()
       Sudoku sudokuASolutionner(entete); 
 	   //sudokuASolutionner.Solutionner();
 		cout << endl;
-		sudokuASolutionner.Afficher(cout);
+		sudokuASolutionner.Afficher(cout);//Avant résolution
+		sudokuASolutionner.Solutionner();
+		AfficherLigneSeparation();
+		sudokuASolutionner.Afficher(cout);//après résolution
 
       Attendre();
    }

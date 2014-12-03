@@ -8,6 +8,7 @@
 //////////////////////////////////////////////////////
 #include "Sudoku.h"
 
+
 Sudoku::Sudoku(string nom)
 {
 	monSudoku_.SetNbLignes(NBLIGNECOLONNE);
@@ -18,7 +19,10 @@ Sudoku::Sudoku(string nom)
 
 void Sudoku::Solutionner()
 {
+	horloge_.Start();
 
+	horloge_.Stop();
+	tempsSolution_ = horloge_.Read();
 }
 
 void Sudoku::Afficher(ostream & out)
@@ -38,7 +42,9 @@ void Sudoku::Afficher(ostream & out)
 		}
 		cout << endl;
 	}
+	cout << "Temps pour la solution (Microseconde)-> " << GetTime() << endl;
 }
+
 
 void Sudoku::RemplirMatrice(ifstream & doc)
 {

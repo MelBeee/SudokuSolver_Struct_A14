@@ -15,6 +15,7 @@ public:
 	void Solutionner();
 	void Afficher(ostream & out);
 	void RemplirMatrice(ifstream & doc);
+	LONGLONG GetTime(){ return tempsSolution_; }
 
 private:
 	//Ligne:9 Colonne:9
@@ -23,6 +24,7 @@ private:
 	const int CHARTOINTASCII = -48;
 	Chrono horloge_;
 	Matrice<int> monSudoku_;
+	LONGLONG tempsSolution_ = 0;
 };
 
 #endif
