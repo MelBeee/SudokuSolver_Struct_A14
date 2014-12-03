@@ -30,13 +30,23 @@ void Sudoku::Solutionner()
 	//8
 	horloge_.Start();
 	//-----------------
-	int ligneDébutCellule = 2;
-	int ColonneDébutCellule = 2;
-	for (ligneDébutCellule;ligneDébutCellule < NBLIGNECOLONNE - 1;ligneDébutCellule += 3)
+	int ligneDébutCellule;
+	int ColonneDébutCellule;
+	for (ligneDébutCellule = 0; ligneDébutCellule < NBLIGNECOLONNE; ligneDébutCellule += 3)
 	{
-		for (ColonneDébutCellule;ColonneDébutCellule < NBLIGNECOLONNE - 1;ColonneDébutCellule += 3)
+		for (ColonneDébutCellule = 0; ColonneDébutCellule < NBLIGNECOLONNE; ColonneDébutCellule += 3)
 		{
-
+			//------------------------------------------------------------
+			for (int i = ligneDébutCellule; i < ligneDébutCellule + 3; i++)
+			{
+				for (int j = ColonneDébutCellule; j < ColonneDébutCellule + 3; j++)
+				{
+					cout << monSudoku_.at(i).at(j);
+				}
+				cout << endl;
+			}
+			cout << endl;
+			//------------------------------------------------------------
 		}
 	}
 
