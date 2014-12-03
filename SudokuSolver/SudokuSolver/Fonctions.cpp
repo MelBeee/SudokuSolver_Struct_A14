@@ -1,5 +1,14 @@
+//////////////////////////////////////////////////////
+//					     Fonctions.cpp			  	   	 //
+//		Fait par Melissa Boucher et Xavier Brosseau   //
+//		Créer le 30 novembre 2014							 //
+//		Dernière modification le 9 Decembre 2014		 //
+//																	 //
+//		Definition des fonctions utilisés pour le menu//
+//////////////////////////////////////////////////////
 #include "Fonctions.h"
 
+////////////////////////////////////////////////////////////////////
 void AfficherMenu()
 {
    cout << "1. Résoudre un sudoku facile " << endl;
@@ -8,7 +17,7 @@ void AfficherMenu()
    cout << "4. Résoudre un sudoku diabolique " << endl;
    cout << "5. Quitter le programme " << endl;
 }
-
+////////////////////////////////////////////////////////////////////
 bool SwitchMenu(string & entete)
 {
    system("cls");
@@ -34,7 +43,7 @@ bool SwitchMenu(string & entete)
    }
    return quitter;
 }
-
+////////////////////////////////////////////////////////////////////
 int FaireChoix()
 {
    int choix;
@@ -45,7 +54,7 @@ int FaireChoix()
 
    return choix; 
 }
-
+////////////////////////////////////////////////////////////////////
 bool GetInt(int & n)
 {
    string str;
@@ -60,14 +69,14 @@ bool GetInt(int & n)
 
    return caractere;
 }
-
+////////////////////////////////////////////////////////////////////
 void Attendre()
 {
    cout << endl << "Appuyer sur une touche pour continuer" << endl;
    cin.ignore(cin.rdbuf()->in_avail() + 1);
    system("cls");
 }
-
+////////////////////////////////////////////////////////////////////
 void AfficherLigneSeparation()
 {
    for (int i = 0; i < 50; i++)
@@ -76,11 +85,11 @@ void AfficherLigneSeparation()
    }
    cout << endl;
 }
-
+////////////////////////////////////////////////////////////////////
 void AfficherEntete(string entete)
 {
    system("cls");
    AfficherLigneSeparation();
-   cout << "\t\t Sudoku " << entete << endl;
+   cout << "\t\t Sudoku " << entete << endl; // Affiche le nom du sudoku
    AfficherLigneSeparation();
 }
