@@ -19,8 +19,29 @@ Sudoku::Sudoku(string nom)
 
 void Sudoku::Solutionner()
 {
+	//0 1 2 3 4 5 6 7 8
+	//1
+	//2 
+	//3 
+	//4
+	//5
+	//6
+	//7
+	//8
 	horloge_.Start();
+	//-----------------
+	int ligneDébutCellule = 2;
+	int ColonneDébutCellule = 2;
+	for (ligneDébutCellule;ligneDébutCellule < NBLIGNECOLONNE - 1;ligneDébutCellule += 3)
+	{
+		for (ColonneDébutCellule;ColonneDébutCellule < NBLIGNECOLONNE - 1;ColonneDébutCellule += 3)
+		{
 
+		}
+	}
+
+	//<8
+	//-----------------
 	horloge_.Stop();
 	tempsSolution_ = horloge_.Read();
 }
