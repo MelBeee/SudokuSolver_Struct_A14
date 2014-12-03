@@ -16,6 +16,8 @@ public:
 	void Afficher(ostream & out);
 	void RemplirMatrice(ifstream & doc);
 	LONGLONG GetTime(){ return tempsSolution_; }
+	int SudokuHelper(int ligne, int colonne);
+	bool EstValide(int nextNum, int ligne, int colonne);
 
 private:
 	//Ligne:9 Colonne:9

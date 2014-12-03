@@ -49,11 +49,37 @@ void Sudoku::Solutionner()
 			//------------------------------------------------------------
 		}
 	}
-
-	//<8
 	//-----------------
 	horloge_.Stop();
 	tempsSolution_ = horloge_.Read();
+}
+
+int Sudoku::SudokuHelper(int ligne, int colonne)
+{
+	int nextNum = 1;
+	/*
+	* Iterate through the possible numbers for this empty cell
+	* and recurse for every valid one, to test if it's part
+	* of the valid solution.
+	*/
+	for (; nextNum < 10; nextNum++) {
+		if (EstValide(nextNum, ligne, colonne)) {
+			monSudoku_.at(ligne).at(colonne) = nextNum;
+			if (colonne == 8) {
+				if (SudokuHelper(ligne + 1, 0)) return 1;
+			}
+			else {
+				if (SudokuHelper(ligne, colonne + 1)) return 1;
+			}
+			// We failed to find a valid value for this 
+			monSudoku_.at(ligne).at(colonne) = 0;
+		}
+	}
+}
+
+bool EstValide(int nextNum, int ligne, int colonne)
+{
+
 }
 
 void Sudoku::Afficher(ostream & out)
