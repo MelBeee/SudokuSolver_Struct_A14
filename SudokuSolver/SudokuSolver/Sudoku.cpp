@@ -17,92 +17,6 @@ Sudoku::Sudoku(string nom)
 	RemplirMatrice(sudokuMap);
 }
 
-void Sudoku::Solutionner()
-{
-	//0 1 2 3 4 5 6 7 8
-	//1
-	//2 
-	//3 
-	//4
-	//5
-	//6
-	//7
-	//8
-	horloge_.Start();
-	//-----------------
-	int ligneDébutCellule;
-	int ColonneDébutCellule;
-	for (ligneDébutCellule = 0; ligneDébutCellule < NBLIGNECOLONNE; ligneDébutCellule += 3)
-	{
-		for (ColonneDébutCellule = 0; ColonneDébutCellule < NBLIGNECOLONNE; ColonneDébutCellule += 3)
-		{
-			//------------------------------------------------------------
-			for (int i = ligneDébutCellule; i < ligneDébutCellule + 3; i++)
-			{
-				for (int j = ColonneDébutCellule; j < ColonneDébutCellule + 3; j++)
-				{
-					cout << monSudoku_.at(i).at(j);
-				}
-				cout << endl;
-			}
-			cout << endl;
-			//------------------------------------------------------------
-		}
-	}
-	//-----------------
-	horloge_.Stop();
-	tempsSolution_ = horloge_.Read();
-}
-
-int Sudoku::SudokuHelper(int ligne, int colonne)
-{
-	int nextNum = 1;
-	/*
-	* Iterate through the possible numbers for this empty cell
-	* and recurse for every valid one, to test if it's part
-	* of the valid solution.
-	*/
-	for (; nextNum < 10; nextNum++) {
-		if (EstValide(nextNum, ligne, colonne)) {
-			monSudoku_.at(ligne).at(colonne) = nextNum;
-			if (colonne == 8) {
-				if (SudokuHelper(ligne + 1, 0)) return 1;
-			}
-			else {
-				if (SudokuHelper(ligne, colonne + 1)) return 1;
-			}
-			// We failed to find a valid value for this 
-			monSudoku_.at(ligne).at(colonne) = 0;
-		}
-	}
-}
-
-bool EstValide(int nextNum, int ligne, int colonne)
-{
-
-}
-
-void Sudoku::Afficher(ostream & out)
-{
-	for (int i = 0; i < NBLIGNECOLONNE; i++)
-	{
-		for (int j = 0; j < NBLIGNECOLONNE; j++)
-		{
-			if (monSudoku_.at(i).at(j) != 0)
-			{
-				out << monSudoku_.at(i).at(j);
-			}
-			else
-			{
-				out << " ";
-			}
-		}
-		cout << endl;
-	}
-	cout << "Temps pour la solution (Microseconde)-> " << GetTime() << endl;
-}
-
-
 void Sudoku::RemplirMatrice(ifstream & doc)
 {
 	char nombre;
@@ -129,4 +43,102 @@ void Sudoku::RemplirMatrice(ifstream & doc)
 	{
 		throw exception("le nom du fichier est introuvable");
 	}
+}
+
+void Sudoku::AfficherSudoku()
+{
+	for (int i = 0; i < NBLIGNECOLONNE; i++)
+	{
+		for (int j = 0; j < NBLIGNECOLONNE; j++)
+		{
+			cout << monSudoku_[i][j];
+			if (j == 3 - 1 || j == 6 - 1)
+			{
+				cout << " ";
+			}
+		}
+
+		cout << endl;
+		if (i == 3 - 1 || i == 6 - 1)
+		{
+			cout << endl;
+		}
+	}
+}
+
+// trouve une position dans le vecteur qui n'a pas de valeur attribué (0)
+bool Sudoku::TrouvePositionVide(int& ligne, int& colonne)
+{
+	for (ligne = 0; ligne < NBLIGNECOLONNE; ligne++)
+	{
+		for (colonne = 0; colonne < NBLIGNECOLONNE; colonne++)
+		{
+			if (monSudoku_.at(ligne).at(colonne) == CHIFFREPASBON)
+				return true;
+		}
+	}
+	return false;
+}
+// verifie si le nombre entré en parametre peut aller a la position passé en parametre
+bool Sudoku::VerifiePosition(int ligne, int colonne, int nombre)
+{
+	return	!VerifierLigne(ligne, nombre) &&
+				!VerifierColonne(colonne, nombre) &&
+				!VerifierCadran(ligne - ligne % 3, colonne - colonne % 3, nombre);
+}
+
+//essaie de resoudre le sudoku
+bool Sudoku::Resoudre()
+{
+	int colonne, ligne;
+
+	if (!TrouvePositionVide(ligne, colonne))
+		return true;
+
+	for (int num = 1; num <= NBLIGNECOLONNE; num++)
+	{
+		if (VerifiePosition(ligne, colonne, num))
+		{
+			monSudoku_.at(ligne).at(colonne) = num;
+
+			if (Resoudre())
+				return true;
+
+			monSudoku_.at(ligne).at(colonne) = CHIFFREPASBON;
+		}
+	}
+	return false;
+}
+// verifie si la valeur entré en parametre est dans la colonne donné
+bool Sudoku::VerifierColonne(int colonne, int nombre)
+{
+	for (int ligne = 0; ligne < NBLIGNECOLONNE; ligne++)
+	{
+		if (monSudoku_.at(ligne).at(colonne) == nombre)
+			return true;
+	}
+	return false;
+}
+// verifie si la valeur entré en parametre est dans la colonne donné
+bool Sudoku::VerifierLigne(int ligne, int nombre)
+{
+	for (int colonne = 0; colonne < NBLIGNECOLONNE; colonne++)
+	{
+		if (monSudoku_.at(ligne).at(colonne) == nombre)
+			return true;
+	}
+	return false;
+}
+// verifie si la valeur entré en parametre se trouve dans le cadran donné
+bool Sudoku::VerifierCadran(int lignedepart, int colonnedepart, int nombre)
+{
+	for (int ligne = 0; ligne < NBRECADRAN; ligne++)
+	{
+		for (int colonne = 0; colonne < NBRECADRAN; colonne++)
+		{
+			if (monSudoku_.at(ligne + lignedepart).at(colonne + colonnedepart) == nombre)
+				return true;
+		}
+	}
+	return false;
 }

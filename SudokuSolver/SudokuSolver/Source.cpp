@@ -15,20 +15,6 @@ int main()
 
    while (!SwitchMenu(entete))
    {
-      AfficherEntete(entete);
-
-      Sudoku sudokuASolutionner(entete); 
-	   //sudokuASolutionner.Solutionner();
-		cout << endl;
-		sudokuASolutionner.Afficher(cout);//Avant résolution
-		sudokuASolutionner.Solutionner();
-		AfficherLigneSeparation();
-		sudokuASolutionner.Afficher(cout);//après résolution
-
-      Attendre();
+		ResoudreSudoku(entete);
    }
-
-   system("cls");
-   cout << " Au revoir " << endl << endl; 
-
 }

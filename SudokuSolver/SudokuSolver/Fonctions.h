@@ -57,5 +57,11 @@ void Attendre();
 //    Extrant : true = le caractere n,est pas une lettre / false = le caractere est une lettre        //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool GetInt(int & n);
+//////////////////////////////////////////////////////////////////////
+//    Fonction englobe tout les etapes du solutionnage du sudoku    //
+//    Intrants : entete a afficher                                  //   
+//    Extrant : None                                                //
+//////////////////////////////////////////////////////////////////////
+void ResoudreSudoku(string entete);
 
 #endif

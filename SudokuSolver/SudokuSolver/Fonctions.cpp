@@ -93,3 +93,25 @@ void AfficherEntete(string entete)
    cout << "\t\t Sudoku " << entete << endl; // Affiche le nom du sudoku
    AfficherLigneSeparation();
 }
+////////////////////////////////////////////////////////////////////
+void ResoudreSudoku(string entete)
+{
+	AfficherEntete(entete);
+
+	Sudoku sudokuASolutionner(entete);
+	Chrono horloge;
+	
+
+	horloge.Start();
+	if (sudokuASolutionner.Resoudre())
+	{
+		horloge.Stop();
+		sudokuASolutionner.AfficherSudoku();
+		cout << "Temps : " << horloge.Read() << endl; 
+	}
+	else
+	{
+		cout << " Aucune solution possible " << endl;
+	}
+	Attendre();
+}
