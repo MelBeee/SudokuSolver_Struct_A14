@@ -52,14 +52,14 @@ void Sudoku::AfficherSudoku()
 		for (int j = 0; j < NBLIGNECOLONNE; j++)
 		{
 			cout << monSudoku_[i][j];
-			if (j == 3 - 1 || j == 6 - 1)
+         if (j == NBRECADRAN - 1 || j == 6 - 1)
 			{
 				cout << " ";
 			}
 		}
 
 		cout << endl;
-		if (i == 3 - 1 || i == 6 - 1)
+      if (i == NBRECADRAN - 1 || i == 6 - 1)
 		{
 			cout << endl;
 		}

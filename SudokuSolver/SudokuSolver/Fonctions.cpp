@@ -107,7 +107,7 @@ void ResoudreSudoku(string entete)
 	{
 		horloge.Stop();
 		sudokuASolutionner.AfficherSudoku();
-		cout << "Temps : " << horloge.Read() << endl; 
+		cout << endl << "Temps : " << horloge.Read() << endl; 
 	}
 	else
 	{
