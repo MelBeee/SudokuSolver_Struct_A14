@@ -29,7 +29,7 @@ void Sudoku::RemplirMatrice(ifstream & doc)
 				doc.get(nombre);
 				if (nombre == '\n')//vérifie si le caractère n'est pas un endl
 				{
-					nombre = doc.get();
+					doc.get(nombre);
 				}
 				if (nombre == '*') //Transforme les * en int 0
 				{
