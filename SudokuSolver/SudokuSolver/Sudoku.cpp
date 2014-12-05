@@ -41,7 +41,7 @@ void Sudoku::RemplirMatrice(ifstream & doc)
 	}
 	else
 	{
-		throw exception("le nom du fichier est introuvable");
+		throw exception("Le nom du fichier est introuvable");
 	}
 }
 
