@@ -98,15 +98,15 @@ void ResoudreSudoku(string entete)
 {
 	AfficherEntete(entete);
 
-	Sudoku sudokuASolutionner(entete);
 	Chrono horloge;
-	
+   ifstream sudokuMap("Sudoku_" + entete + ".txt");
+   Sudoku sudokuASolutionner(sudokuMap);
 
 	horloge.Start();
 	if (sudokuASolutionner.Resoudre())
 	{
 		horloge.Stop();
-		sudokuASolutionner.AfficherSudoku();
+		sudokuASolutionner.AfficherSudoku(cout);
 		cout << endl << "Temps : " << horloge.Read() << endl; 
 	}
 	else

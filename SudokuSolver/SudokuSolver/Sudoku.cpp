@@ -9,11 +9,11 @@
 #include "Sudoku.h"
 
 
-Sudoku::Sudoku(string nom)
+Sudoku::Sudoku(ifstream &sudokuMap)
 {
 	monSudoku_.SetNbLignes(NBLIGNECOLONNE);
 	monSudoku_.SetNbColonnes(NBLIGNECOLONNE);
-	ifstream sudokuMap("Sudoku_" + nom + ".txt");
+	
 	RemplirMatrice(sudokuMap);
 }
 
@@ -45,7 +45,7 @@ void Sudoku::RemplirMatrice(ifstream & doc)
 	}
 }
 
-void Sudoku::AfficherSudoku()
+void Sudoku::AfficherSudoku(ostream & out)
 {
 	for (int i = 0; i < NBLIGNECOLONNE; i++)
 	{
