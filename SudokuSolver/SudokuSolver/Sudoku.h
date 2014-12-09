@@ -23,25 +23,32 @@ class Sudoku
 public:
 	// constructeur paramétrique qui initialise le vecteur avec le contenu du doc.txt
 	Sudoku(string nom);
+
 	// rempli la matrice avec le contenu du doc.txt
 	void RemplirMatrice(ifstream & doc);
+
 	// trouve une position dans le vecteur qui n'a pas de valeur attribué (0)
 	bool TrouvePositionVide(int& colonne, int& ligne);
+
 	// verifie si le nombre entré en parametre peut aller a la position passé en parametre
 	bool VerifiePosition(int colonne, int ligne, int nombre);
+
 	//essaie de resoudre le sudoku
 	bool Resoudre();
+
 	// verifie si la valeur entré en parametre est dans la colonne donné
 	bool VerifierColonne(int colonne, int nombre);
+
 	// verifie si la valeur entré en parametre est dans la colonne donné
 	bool VerifierLigne(int ligne, int nombre);
+
 	// verifie si la valeur entré en parametre se trouve dans le cadran donné
 	bool VerifierCadran(int lignedepart, int colonnedepart, int nombre);
+
 	// affiche le sudoku
 	void AfficherSudoku();
 
 private:
-	Chrono horloge_;
 	Matrice<int> monSudoku_;
 };
 
