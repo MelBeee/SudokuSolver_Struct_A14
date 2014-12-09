@@ -1,3 +1,13 @@
+//////////////////////////////////////////////////////
+//					     Sudoku.h			  		   	    //
+//		Fait par Melissa Boucher et Xavier Brosseau   //
+//		Créer le 30 novembre 2014							 //
+//		Dernière modification le 9 Decembre 2014		 //
+//																	 //
+//		Declaration des fonctions de la class sudoku  //
+//    pour la résolution et l'affichage d'une grille//
+//    de jeu                                        //
+//////////////////////////////////////////////////////
 #ifndef SUDOKU_H
 #define SUDOKU_H
 #include <iostream>
