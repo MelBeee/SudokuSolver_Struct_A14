@@ -48,11 +48,11 @@ bool SwitchMenu(string & entete)
 ////////////////////////////////////////////////////////////////////
 int FaireChoix()
 {
-   int choix;
+   int choix = 0;
    do
    {
       cout << "Faites un choix : ";
-   } while (!GetInt(choix) && (choix < NBCHOIXMIN || choix > NBCHOIXMAX));
+   } while (!GetInt(choix) || (choix < NBCHOIXMIN || choix > NBCHOIXMAX));
 
    return choix; 
 }

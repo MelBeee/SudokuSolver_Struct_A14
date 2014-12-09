@@ -38,51 +38,10 @@ public:
    Sudoku(ifstream &sudokuMap);
 
 	//////////////////////////////////////////////////////////////////////////
-	//    rempli la matrice avec le contenu du doc.txt						      //
-	//    Intrants : ifstream Document .txt                                 //
-	//////////////////////////////////////////////////////////////////////////
-	void RemplirMatrice(ifstream & doc);
-
-	//////////////////////////////////////////////////////////////////////////////
-	//    trouve une position dans le vecteur qui n'a pas de valeur attribué (0)//
-	//    Intrants : ligne & colonne															 //
-	//    Extrant : bool si position trouver												 //
-	//////////////////////////////////////////////////////////////////////////////
-	bool TrouvePositionVide(int& colonne, int& ligne);
-
-	///////////////////////////////////////////////////////////////////////////////////////////
-	//    verifie si le nombre entré en parametre peut aller a la position passé en parametre//
-	//    Intrants : colonne & ligne, nombre                                                 //
-	//    Extrant : si nombre peut aller a la position							                    //
-	///////////////////////////////////////////////////////////////////////////////////////////
-	bool VerifiePosition(int colonne, int ligne, int nombre);
-
-	//////////////////////////////////////////////////////////////////////////
 	//    essaie de resoudre le sudoku                                      //
 	//    Extrant : si résolution possible                                  //
 	//////////////////////////////////////////////////////////////////////////
 	bool Resoudre();
-
-	//////////////////////////////////////////////////////////////////////////
-	//    verifie si la valeur entré en parametre est dans la colonne donné //
-	//    Intrants : le nombre, la colonne                                  //
-	//    Extrant : si valeur est dans la colonne                           //
-	//////////////////////////////////////////////////////////////////////////
-	bool VerifierColonne(int colonne, int nombre);
-
-	//////////////////////////////////////////////////////////////////////////
-	//    verifie si la valeur entré en parametre est dans la ligne donné   //
-	//    Intrants : le nombre, la ligne                                    //
-	//    Extrant : si la valeur est dans la ligne                          //
-	//////////////////////////////////////////////////////////////////////////
-	bool VerifierLigne(int ligne, int nombre);
-
-	///////////////////////////////////////////////////////////////////////////////
-	//    verifie si la valeur entré en parametre se trouve dans le cadran donné //
-	//    Intrants : ligne de départ, colonne de départ, un nombre               //
-	//    Extrant : si le nombre est dans le cadran		                          //
-	///////////////////////////////////////////////////////////////////////////////
-	bool VerifierCadran(int lignedepart, int colonnedepart, int nombre);
 
 	//////////////////////////////////////////////////////////////////////////
 	//    affiche le sudoku																	//
@@ -92,6 +51,48 @@ public:
 
 private:
 	Matrice<int> monSudoku_;
+
+   //////////////////////////////////////////////////////////////////////////
+   //    rempli la matrice avec le contenu du doc.txt						      //
+   //    Intrants : ifstream Document .txt                                 //
+   //////////////////////////////////////////////////////////////////////////
+   void RemplirMatrice(ifstream & doc);
+
+   //////////////////////////////////////////////////////////////////////////////
+   //    trouve une position dans le vecteur qui n'a pas de valeur attribué (0)//
+   //    Intrants : ligne & colonne															 //
+   //    Extrant : bool si position trouver												 //
+   //////////////////////////////////////////////////////////////////////////////
+   bool TrouvePositionVide(int& colonne, int& ligne);
+
+   ///////////////////////////////////////////////////////////////////////////////////////////
+   //    verifie si le nombre entré en parametre peut aller a la position passé en parametre//
+   //    Intrants : colonne & ligne, nombre                                                 //
+   //    Extrant : si nombre peut aller a la position							                    //
+   ///////////////////////////////////////////////////////////////////////////////////////////
+   bool VerifiePosition(int colonne, int ligne, int nombre);
+
+   //////////////////////////////////////////////////////////////////////////
+   //    verifie si la valeur entré en parametre est dans la colonne donné //
+   //    Intrants : le nombre, la colonne                                  //
+   //    Extrant : si valeur est dans la colonne                           //
+   //////////////////////////////////////////////////////////////////////////
+   bool VerifierColonne(int colonne, int nombre);
+
+   //////////////////////////////////////////////////////////////////////////
+   //    verifie si la valeur entré en parametre est dans la ligne donné   //
+   //    Intrants : le nombre, la ligne                                    //
+   //    Extrant : si la valeur est dans la ligne                          //
+   //////////////////////////////////////////////////////////////////////////
+   bool VerifierLigne(int ligne, int nombre);
+
+   ///////////////////////////////////////////////////////////////////////////////
+   //    verifie si la valeur entré en parametre se trouve dans le cadran donné //
+   //    Intrants : ligne de départ, colonne de départ, un nombre               //
+   //    Extrant : si le nombre est dans le cadran		                          //
+   ///////////////////////////////////////////////////////////////////////////////
+   bool VerifierCadran(int lignedepart, int colonnedepart, int nombre);
+
 };
 
 #endif
