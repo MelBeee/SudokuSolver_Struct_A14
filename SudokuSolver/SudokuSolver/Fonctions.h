@@ -21,42 +21,49 @@ const int NBCHOIXMIN = 1;
 //    Extrant : None                                                    //
 //////////////////////////////////////////////////////////////////////////
 void AfficherMenu();
+
 ////////////////////////////////////////////////////////////////////////////////////////////
 //    Fonction qui fait en sorte d'executer ce que l'utilisateur a fait comme choix       //
 //    Intrants : string de l'entete du choix                                              //
 //    Extrant : boolean quitter (true = quitter/false = continuer)                        //
 ////////////////////////////////////////////////////////////////////////////////////////////
 bool SwitchMenu(string & entete);
+
 //////////////////////////////////////////////////////////////
 //    Fonction qui demande le choix de l'utilisateur        //
 //    Intrants : None                                       //
 //    Extrant : le choix                                    //
 //////////////////////////////////////////////////////////////
 int FaireChoix();
+
 ////////////////////////////////////////////////////////
 //    Fonction de paresseux qui affiche des lignes    //
 //    Intrants : None                                 //
 //    Extrant : le choix                              //
 ////////////////////////////////////////////////////////
 void AfficherLigneSeparation();
+
 //////////////////////////////////////////////////////////////////////////
 //    Fonction qui affiche l'entete du choix fait par l'utilisateur     //
 //    Intrants : None                                                   //
 //    Extrant : le choix                                                //
 //////////////////////////////////////////////////////////////////////////
 void AfficherEntete(string entete);
+
 ////////////////////////////////////////////////////////////////////////////////////////////
 //    Fonction qui bloque l'affichage tant que l'utilisateur ne presse pas une touche     //
 //    Intrants : None                                                                     //
 //    Extrant : None                                                                      //
 ////////////////////////////////////////////////////////////////////////////////////////////
 void Attendre();
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 //    Fonction qui prend l'entré au clavier de l'utilisateur lorsqu'on veux seulement des nombres     //
 //    Intrants : le nombre a entrer en reference                                                      //
 //    Extrant : true = le caractere n,est pas une lettre / false = le caractere est une lettre        //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 bool GetInt(int & n);
+
 //////////////////////////////////////////////////////////////////////
 //    Fonction englobe tout les etapes du solutionnage du sudoku    //
 //    Intrants : entete a afficher                                  //   

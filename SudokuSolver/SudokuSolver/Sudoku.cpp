@@ -9,7 +9,7 @@
 #include "Sudoku.h"
 
 
-//construit la matrice avec un fichier txt apropriée
+////////////////////////////////////////////////////////////////////
 Sudoku::Sudoku(ifstream &sudokuMap)
 {
 	monSudoku_.SetNbLignes(NBLIGNECOLONNE);
@@ -17,7 +17,7 @@ Sudoku::Sudoku(ifstream &sudokuMap)
 	RemplirMatrice(sudokuMap);
 }
 
-//remplit la matrice a partir du fichier IFSTREAM passé en paramètre 
+//////////////////////////////////////////////////////////////////// 
 void Sudoku::RemplirMatrice(ifstream & doc)
 {
 	char nombre;
@@ -47,7 +47,7 @@ void Sudoku::RemplirMatrice(ifstream & doc)
 	}
 }
 
-//Affiche le Sudoku a partir de la matrice 
+////////////////////////////////////////////////////////////////////
 void Sudoku::AfficherSudoku(ostream & out)
 {
 	for (int i = 0; i < NBLIGNECOLONNE; i++)
@@ -69,7 +69,7 @@ void Sudoku::AfficherSudoku(ostream & out)
 	}
 }
 
-// trouve une position dans le vecteur qui n'a pas de valeur attribué (0)
+////////////////////////////////////////////////////////////////////
 bool Sudoku::TrouvePositionVide(int& ligne, int& colonne)
 {
 	for (ligne = 0; ligne < NBLIGNECOLONNE; ligne++)
@@ -83,7 +83,7 @@ bool Sudoku::TrouvePositionVide(int& ligne, int& colonne)
 	return false;
 }
 
-// verifie si le nombre entré en parametre peut aller a la position passé en parametre
+////////////////////////////////////////////////////////////////////
 bool Sudoku::VerifiePosition(int ligne, int colonne, int nombre)
 {
 	return	!VerifierLigne(ligne, nombre) &&
@@ -91,7 +91,7 @@ bool Sudoku::VerifiePosition(int ligne, int colonne, int nombre)
 				!VerifierCadran(ligne - ligne % 3, colonne - colonne % 3, nombre);
 }
 
-//essaie de resoudre le sudoku
+////////////////////////////////////////////////////////////////////
 bool Sudoku::Resoudre()
 {
 	int colonne, ligne;
@@ -114,7 +114,7 @@ bool Sudoku::Resoudre()
 	return false;
 }
 
-// verifie si la valeur entré en parametre est dans la colonne donné
+////////////////////////////////////////////////////////////////////
 bool Sudoku::VerifierColonne(int colonne, int nombre)
 {
 	for (int ligne = 0; ligne < NBLIGNECOLONNE; ligne++)
@@ -125,7 +125,7 @@ bool Sudoku::VerifierColonne(int colonne, int nombre)
 	return false;
 }
 
-// verifie si la valeur entré en parametre est dans la colonne donné
+////////////////////////////////////////////////////////////////////
 bool Sudoku::VerifierLigne(int ligne, int nombre)
 {
 	for (int colonne = 0; colonne < NBLIGNECOLONNE; colonne++)
@@ -136,7 +136,7 @@ bool Sudoku::VerifierLigne(int ligne, int nombre)
 	return false;
 }
 
-// verifie si la valeur entré en parametre se trouve dans le cadran donné
+////////////////////////////////////////////////////////////////////
 bool Sudoku::VerifierCadran(int lignedepart, int colonnedepart, int nombre)
 {
 	for (int ligne = 0; ligne < NBRECADRAN; ligne++)
