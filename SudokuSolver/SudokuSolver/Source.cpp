@@ -10,9 +10,11 @@
 
 int main()
 {
+	//permet d'afficher les caractères spéciaux
 	setlocale(LC_ALL, "");
    string entete;
 
+	//tant que l'on ne quitte pas..
    while (!SwitchMenu(entete))
    {
 		ResoudreSudoku(entete);

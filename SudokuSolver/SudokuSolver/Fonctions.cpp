@@ -17,6 +17,7 @@ void AfficherMenu()
    cout << "4. Résoudre un sudoku diabolique " << endl;
    cout << "5. Quitter le programme " << endl;
 }
+
 ////////////////////////////////////////////////////////////////////
 bool SwitchMenu(string & entete)
 {
@@ -43,6 +44,7 @@ bool SwitchMenu(string & entete)
    }
    return quitter;
 }
+
 ////////////////////////////////////////////////////////////////////
 int FaireChoix()
 {
@@ -54,6 +56,7 @@ int FaireChoix()
 
    return choix; 
 }
+
 ////////////////////////////////////////////////////////////////////
 bool GetInt(int & n)
 {
@@ -69,6 +72,7 @@ bool GetInt(int & n)
 
    return caractere;
 }
+
 ////////////////////////////////////////////////////////////////////
 void Attendre()
 {
@@ -76,6 +80,7 @@ void Attendre()
    cin.ignore(cin.rdbuf()->in_avail() + 1);
    system("cls");
 }
+
 ////////////////////////////////////////////////////////////////////
 void AfficherLigneSeparation()
 {
@@ -85,6 +90,7 @@ void AfficherLigneSeparation()
    }
    cout << endl;
 }
+
 ////////////////////////////////////////////////////////////////////
 void AfficherEntete(string entete)
 {
@@ -93,6 +99,7 @@ void AfficherEntete(string entete)
    cout << "\t\t Sudoku " << entete << endl; // Affiche le nom du sudoku
    AfficherLigneSeparation();
 }
+
 ////////////////////////////////////////////////////////////////////
 void ResoudreSudoku(string entete)
 {
@@ -102,10 +109,10 @@ void ResoudreSudoku(string entete)
    ifstream sudokuMap("Sudoku_" + entete + ".txt");
    Sudoku sudokuASolutionner(sudokuMap);
 
-	horloge.Start();
-	if (sudokuASolutionner.Resoudre())
+	horloge.Start(); //démarre le compteur
+	if (sudokuASolutionner.Resoudre())//résolution du sudoku
 	{
-		horloge.Stop();
+		horloge.Stop(); //Arrête le compteur
 		sudokuASolutionner.AfficherSudoku(cout);
 		cout << endl << "Temps : " << horloge.Read() << endl; 
 	}

@@ -62,7 +62,7 @@ void Sudoku::AfficherSudoku(ostream & out)
 		}
 
 		cout << endl;
-      if (1%3==2)
+      if ((i+1)%3==0)
 		{
 			cout << endl;
 		}
@@ -95,7 +95,7 @@ bool Sudoku::VerifiePosition(int ligne, int colonne, int nombre)
 bool Sudoku::Resoudre()
 {
 	int colonne, ligne;
-
+	
 	if (!TrouvePositionVide(ligne, colonne))
 		return true;
 
@@ -103,11 +103,13 @@ bool Sudoku::Resoudre()
 	{
 		if (VerifiePosition(ligne, colonne, num))
 		{
+			// initialise la position donné avec le numero auquel nous sommes rendu. 
 			monSudoku_.at(ligne).at(colonne) = num;
 
-			if (Resoudre())
+			if (Resoudre()) //recursivitéééé
 				return true;
 
+			// si la position n'est finalement pas correcte, on le remet a 0
 			monSudoku_.at(ligne).at(colonne) = CHIFFREPASBON;
 		}
 	}
