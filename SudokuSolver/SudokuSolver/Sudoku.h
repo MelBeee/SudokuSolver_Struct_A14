@@ -22,7 +22,7 @@ class Sudoku
 {
 public:
 	// constructeur paramétrique qui initialise le vecteur avec le contenu du doc.txt
-	Sudoku(string nom);
+   Sudoku(ifstream &sudokuMap);
 	// rempli la matrice avec le contenu du doc.txt
 	void RemplirMatrice(ifstream & doc);
 	// trouve une position dans le vecteur qui n'a pas de valeur attribué (0)
@@ -38,7 +38,7 @@ public:
 	// verifie si la valeur entré en parametre se trouve dans le cadran donné
 	bool VerifierCadran(int lignedepart, int colonnedepart, int nombre);
 	// affiche le sudoku
-	void AfficherSudoku();
+   void AfficherSudoku(ostream & out);
 
 private:
 	Chrono horloge_;
