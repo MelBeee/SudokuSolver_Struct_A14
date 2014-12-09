@@ -9,14 +9,15 @@
 #include "Sudoku.h"
 
 
+//construit la matrice avec un fichier txt apropriée
 Sudoku::Sudoku(ifstream &sudokuMap)
 {
 	monSudoku_.SetNbLignes(NBLIGNECOLONNE);
 	monSudoku_.SetNbColonnes(NBLIGNECOLONNE);
-	
 	RemplirMatrice(sudokuMap);
 }
 
+//remplit la matrice a partir du fichier IFSTREAM passé en paramètre 
 void Sudoku::RemplirMatrice(ifstream & doc)
 {
 	char nombre;
@@ -29,13 +30,14 @@ void Sudoku::RemplirMatrice(ifstream & doc)
 				doc.get(nombre);
 				if (nombre == '\n')//vérifie si le caractère n'est pas un endl
 				{
-					doc.get(nombre);
+					doc.get(nombre);//Prend le caractère suivent plutot que le '\n'
 				}
 				if (nombre == '*') //Transforme les * en int 0
 				{
 					nombre = '0';
 				}
-				monSudoku_.at(i).at(j) = nombre + CHARTOINTASCII;
+				monSudoku_.at(i).at(j) = nombre + CHARTOINTASCII;//entre dans la matrice le code ascii - 48
+																				 //pour le transformer un int
 			}
 		}
 	}
@@ -45,6 +47,7 @@ void Sudoku::RemplirMatrice(ifstream & doc)
 	}
 }
 
+//Affiche le Sudoku a partir de la matrice 
 void Sudoku::AfficherSudoku(ostream & out)
 {
 	for (int i = 0; i < NBLIGNECOLONNE; i++)
@@ -59,7 +62,7 @@ void Sudoku::AfficherSudoku(ostream & out)
 		}
 
 		cout << endl;
-      if (i == NBRECADRAN - 1 || i == 6 - 1)
+      if (1%3==2)
 		{
 			cout << endl;
 		}
@@ -79,6 +82,7 @@ bool Sudoku::TrouvePositionVide(int& ligne, int& colonne)
 	}
 	return false;
 }
+
 // verifie si le nombre entré en parametre peut aller a la position passé en parametre
 bool Sudoku::VerifiePosition(int ligne, int colonne, int nombre)
 {
@@ -109,6 +113,7 @@ bool Sudoku::Resoudre()
 	}
 	return false;
 }
+
 // verifie si la valeur entré en parametre est dans la colonne donné
 bool Sudoku::VerifierColonne(int colonne, int nombre)
 {
@@ -119,6 +124,7 @@ bool Sudoku::VerifierColonne(int colonne, int nombre)
 	}
 	return false;
 }
+
 // verifie si la valeur entré en parametre est dans la colonne donné
 bool Sudoku::VerifierLigne(int ligne, int nombre)
 {
@@ -129,6 +135,7 @@ bool Sudoku::VerifierLigne(int ligne, int nombre)
 	}
 	return false;
 }
+
 // verifie si la valeur entré en parametre se trouve dans le cadran donné
 bool Sudoku::VerifierCadran(int lignedepart, int colonnedepart, int nombre)
 {
