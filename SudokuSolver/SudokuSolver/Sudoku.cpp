@@ -21,6 +21,7 @@ Sudoku::Sudoku(ifstream &sudokuMap)
 void Sudoku::RemplirMatrice(ifstream & doc)
 {
 	char nombre;
+
 	if (!doc.fail()) //si le fichier est ouvert
 	{
 		for (int i = 0; i < NBLIGNECOLONNE; i++)
